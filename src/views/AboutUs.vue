@@ -320,7 +320,7 @@ img {
   position: absolute;
   bottom: 16px;
   right: 16px;
-  background-color: #007aff;
+  background-color: rgba(245, 183, 38, 0.8);
   color: white;
   border: none;
   border-radius: 50%;
@@ -332,7 +332,7 @@ img {
 }
 
 .add-btn:hover {
-  background-color: #005bb5;
+  background-color: rgba(232, 100, 0, 0.8);
 }
 
 /* Scroll Arrows */

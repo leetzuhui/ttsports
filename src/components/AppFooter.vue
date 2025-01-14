@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
-    <p>&copy; 2025 Company Name. All rights reserved.</p>
-    <p>Designed with love by Your Team</p>
+    <p>&copy; 2025 田田体育. 版权所有.</p>
+    
   </footer>
 </template>
 

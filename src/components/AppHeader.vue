@@ -1,7 +1,7 @@
 <template>
   <header class="header">
-    <router-link class="logo" to="/">
-      <img src="images/logo.jpg" alt="田田体育" />
+    <router-link to="/" class="logo">
+      <img src="/images/logo.jpg" alt="田田体育" />
     </router-link>
     <nav>
       <ul>

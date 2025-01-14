@@ -1,13 +1,19 @@
 <template>
-  <div class="news">
-    <h1>Latest News</h1>
-    <div class="news-grid">
-      <div class="news-item" v-for="(item, index) in newsItems" :key="index">
-        <img :src="item.image" alt="News Image" class="news-image" />
-        <div class="news-content">
-          <h2>{{ item.title }}</h2>
-          <p>{{ item.summary }}</p>
-          <router-link :to="`/news/${item.id}`">Read More</router-link>
+  <div class="view-news">
+    <section class="news-header">
+      <div class="header-content">
+        <h1>新闻动态</h1>
+        <p>田田体育：为青少年提供更好、更健康的运动选择</p>
+      </div>
+    </section>
+
+    <!-- 新闻列表 -->
+    <div class="news-list">
+      <div class="news-card" v-for="news in newsData" :key="news.id" @click="viewNewsDetail(news.id)">
+        <img :src="news.image" alt="新闻图片" class="news-image" />
+        <div class="news-info">
+          <h3 class="news-title">{{ news.title }}</h3>
+          <p class="news-date">{{ news.date }}</p>
         </div>
       </div>
     </div>
@@ -15,84 +21,128 @@
 </template>
 
 <script>
+import { useRouter } from "vue-router";
+
 export default {
-  name: 'ViewNews',
+  name: "ViewNews",
   data() {
     return {
-      newsItems: [
-        {
-          id: 1,
-          title: 'Our New Product Launch',
-          summary: 'We are excited to announce the launch of our latest product...',
-          image: '/images/news1.jpg'
-        },
-        {
-          id: 2,
-          title: 'Company Achieves Milestone',
-          summary: 'Our company has just reached a major milestone...',
-          image: '/images/news2.jpg'
-        },
-        {
-          id: 3,
-          title: 'CSR Initiative for Sustainability',
-          summary: 'We are committed to sustainability, and here is what we’re doing...',
-          image: '/images/news3.jpg'
-        }
-      ]
+      newsData: [], // 初始化为空数组
     };
-  }
-}
+  },
+  created() {
+    // 使用 fetch 动态加载 JSON 数据
+    fetch("/data/newslist.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to load news data.");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        this.newsData = data;
+      })
+      .catch((error) => {
+        console.error("Error fetching news data:", error);
+      });
+  },
+  setup() {
+    const router = useRouter();
+
+    const viewNewsDetail = (id) => {
+      router.push({ name: "news-detail", params: { id } });
+    };
+
+    return {
+      viewNewsDetail,
+    };
+  },
+};
 </script>
 
 <style scoped>
-.news {
-  padding: 40px 20px;
-  background-color: #f8f8f7;
+.view-news {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.news-header {
+  background: linear-gradient(135deg, rgba(35, 171, 229, 0.8), rgba(232, 100, 0, 0.8));
+  color: white;
+  padding: 80px 60px;
   text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-.news h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
+.news-header h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  letter-spacing: -1px;
 }
 
-.news-grid {
+.header-content p {
+  font-size: 20px;
+  margin-top: 0;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 新闻卡片容器 */
+.news-list {
+  padding: 200px 100px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 40px;
 }
 
-.news-item {
+/* 单个新闻卡片 */
+.news-card {
   background-color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  padding: 20px;
-  text-align: left;
-  transition: transform 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.news-item:hover {
-  transform: translateY(-5px);
+.news-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .news-image {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 200px;
+  object-fit: cover;
 }
 
-.news-content h2 {
-  font-size: 20px;
-  color: #0071e3;
-  margin: 10px 0;
+.news-info {
+  padding: 20px;
 }
 
-.news-content p {
+.news-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.news-date {
   font-size: 16px;
-  color: #555;
+  color: #666;
 }
 
-.news-content router-link {
-  font-size: 14px;
-  color: #0071e3;
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .news-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .news-list {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
