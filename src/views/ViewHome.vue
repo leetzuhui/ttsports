@@ -1,23 +1,6 @@
 <template>
   <div class="home">
-    <section class="hero">
-      <h1>Welcome to Our Company</h1>
-      <p>Innovative Solutions for a Better Tomorrow</p>
-    </section>
-    <section class="features">
-      <div class="feature">
-        <h2>Trusted</h2>
-        <p>We are a trusted partner for businesses worldwide.</p>
-      </div>
-      <div class="feature">
-        <h2>Innovative</h2>
-        <p>Our cutting-edge technology drives growth and success.</p>
-      </div>
-      <div class="feature">
-        <h2>Reliable</h2>
-        <p>Count on us for reliable solutions and outstanding support.</p>
-      </div>
-    </section>
+
   </div>
 </template>
 
