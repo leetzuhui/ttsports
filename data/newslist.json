@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "青少年体育活动促进健康",
+    "date": "2025-01-14",
+    "image": "/images/news1.jpg",
+    "markdownPath": "/articles/news1.md"
+  },
+  {
+    "id": 2,
+    "title": "2025年青少年运动大会成功举办",
+    "date": "2025-01-10",
+    "image": "/images/news2.jpg",
+    "markdownPath": "/articles/news2.md"
+  },
+  {
+    "id": 3,
+    "title": "最新青少年体育设施建设计划",
+    "date": "2025-01-05",
+    "image": "/images/news3.jpg",
+    "markdownPath": "/articles/news3.md"
+  },
+  {
+    "id": 4,
+    "title": "如何培养青少年的运动习惯",
+    "date": "2025-01-02",
+    "image": "/images/news4.jpg",
+    "markdownPath": "/articles/news4.md"
+  },
+  {
+    "id": 5,
+    "title": "青少年足球联赛的崛起",
+    "date": "2024-12-25",
+    "image": "/images/news5.jpg",
+    "markdownPath": "/articles/news5.md"
+  },
+  {
+    "id": 6,
+    "title": "合肥青少年体育训练营回顾",
+    "date": "2024-12-20",
+    "image": "/images/news6.jpg",
+    "markdownPath": "/articles/news6.md"
+  },
+  {
+    "id": 7,
+    "title": "跑步对青少年成长的益处",
+    "date": "2024-12-18",
+    "image": "/images/news7.jpg",
+    "markdownPath": "/articles/news7.md"
+  },
+  {
+    "id": 8,
+    "title": "青少年篮球联赛火热开赛",
+    "date": "2024-12-15",
+    "image": "/images/news8.jpg",
+    "markdownPath": "/articles/news8.md"
+  },
+  {
+    "id": 9,
+    "title": "青少年游泳比赛纪录打破",
+    "date": "2024-12-10",
+    "image": "/images/news9.jpg",
+    "markdownPath": "/articles/news9.md"
+  },
+  {
+    "id": 10,
+    "title": "青少年体育俱乐部的未来展望",
+    "date": "2024-12-05",
+    "image": "/images/news10.jpg",
+    "markdownPath": "/articles/news10.md"
+  }
+]
